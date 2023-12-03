@@ -41,7 +41,7 @@ if page == "Edit Data":
             with st.form(f'data-{id}'):
                 employee_name_baru = st.text_input("employee_name", employee_name_lama)
                 gender_baru = st.text_input("gender", gender_lama)
-                date_of_birth_baru = st.date_of_birth_input("tanggal", date_of_birth_lama)
+                date_of_birth_baru = st.date_input("date_of_birth", date_of_birth_lama)
                 jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama))
                 handphone_baru = st.text_input("handphone", handphone_lama)
                 start_and_finish_time_baru = st.multiselect("start_and_finish_time", ['06:00', '07:00', '08:00', '09:00', '17:00'], eval(start_and_finish_time_lama))
