@@ -19,7 +19,7 @@ if page == "View Data":
     st.dataframe(data)
 
 if page == "Edit Data":
-    if st.button('Tambah Data'):
+    if st.form_submit_button('Tambah Data'):
         with conn.session as session:
             query = text('INSERT INTO employee (employee_name, gender, date_of_birth, jabatan, handphone, start_and_finish_time, total_working_hours, salary) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7, :8);')
