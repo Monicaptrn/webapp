@@ -34,7 +34,7 @@ if page == "Edit Data":
         date_of_birth_lama = result["date_of_birth"]
         jabatan_lama = result["jabatan"]
         handphone_lama = result["handphone"]
-        start_and_finish_time_lama = result["start_and_finish_time "]
+        start_and_finish_time_lama = result["start_and_finish_time"]
         total_working_hours_lama = result["total_working_hours"]
         salary_lama = result["salary"]
 
