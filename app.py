@@ -8,7 +8,7 @@ conn = st.connection("postgresql", type="sql",
                      url="postgresql://monicapnatalia:AL0SxXokUnH6@ep-aged-wave-13244601.us-east-2.aws.neon.tech/web")
 with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS EMPLOYEE (id serial, employee_name varchar, gender char(30), date_of_birth date, \
-                                                         position varchar, handphone varchar, address text, start_and_finish_time varchar, total_working_hours time, salary varchar);')
+                                                         position varchar, handphone varchar, start_and_finish_time varchar, total_working_hours time, salary varchar);')
     session.execute(query)
 
 st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT coba')
@@ -21,9 +21,9 @@ if page == "View Data":
 if page == "Edit Data":
     if st.button('Tambah Data'):
         with conn.session as session:
-            query = text('INSERT INTO employee (employee_name, gender, date_of_birth, position, handphone, address, start_and_finish_time, total_working_hours, salary) \
-                          VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9);')
-            session.execute(query, {'1':'', '2':'', '3':None, '4':'', '5':'', '6':'', '7':[], '8':None, '9':''})
+            query = text('INSERT INTO employee (employee_name, gender, date_of_birth, position, handphone, start_and_finish_time, total_working_hours, salary) \
+                          VALUES (:1, :2, :3, :4, :5, :6, :7, :8);')
+            session.execute(query, {'1':'', '2':'', '3':None, '4':'', '5':'', '6':[], '7':None, '8':''})
             session.commit()
 
     data = conn.query('SELECT * FROM employee ORDER By id;', ttl="0")
@@ -34,7 +34,6 @@ if page == "Edit Data":
         date_of_birth_lama = result["date_of_birth"]
         position_lama = result["position"]
         handphone_lama = result["handphone"]
-        address_lama = result["address"]
         start_and_finish_time_lama = result["start_and_finish_time "]
         total_working_hours_lama = result["total_working_hours"]
         salary_lama = result["salary"]
@@ -46,7 +45,6 @@ if page == "Edit Data":
                 date_of_birth_baru = st.date_of_birth_input("tanggal", date_of_birth_lama)
                 position_baru = st.selectbox("position", list_position, list_position.index(position_lama))
                 handphone_baru = st.text_input("handphone", handphone_lama)
-                address_baru = st.text_input("address", address_lama)
                 start_and_finish_time_baru = st.multiselect("start_and_finish_time", ['06:00', '07:00', '08:00', '09:00', '17:00'], eval(start_and_finish_time_lama))
                 total_working_hours_baru = st.time_input("total_working_hours", total_working_hours_lama)
                 salary_baru = st.text_input("salary", salary_lama)
@@ -58,10 +56,10 @@ if page == "Edit Data":
                         with conn.session as session:
                             query = text('UPDATE employee \
                                           SET employee_name=:1, gender=:2, date_of_birth=:3, \
-                                          position=:4, handphone=:5, address=:6, start_and_finish_time=:7, total_working_hours=:8, salary=:9 \
+                                          position=:4, handphone=:5, start_and_finish_time=:6, total_working_hours=:7, salary=:8 \
                                           WHERE id=:10;')
                             session.execute(query, {'1':employee_name_baru, '2':gender_baru, '3':date_of_birth_baru, 
-                                                    '4':position_baru, '5':handphone_baru, '6':address_baru, '7':str(start_and_finish_time_baru), '8':total_working_hours_baru, '9':salary_baru, '10':id})
+                                                    '4':position_baru, '5':handphone_baru, '6':str(start_and_finish_time_baru), '7':total_working_hours_baru, '8':salary_baru, '9':id})
                             session.commit()
                             st.experimental_rerun()
                 
