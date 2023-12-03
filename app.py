@@ -10,7 +10,7 @@ with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS EMPLOYEE (id_employee text, employee_name text, gender text, date_of_birth date, position text, handphone text, address text, start_and_finish_time text, total_working_hours time, salary text);')
     session.execute(query)
 
-st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT')
+st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT coba')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
