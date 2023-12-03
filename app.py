@@ -48,7 +48,7 @@ if page == "Edit Data":
                 total_working_hours_baru = st.time_input("total_working_hours", total_working_hours_lama)
                 salary_baru = st.text_input("salary", salary_lama)
                 
-                col1, col2 = st.columns([1, 8])
+                col1, col2 = st.columns([1, 6])
 
                 with col1:
                     if st.form_submit_button('UPDATE'):
