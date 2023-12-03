@@ -14,7 +14,7 @@ st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT coba')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
-    data = conn.query('SELECT * FROM employee ORDER By id_employee;', ttl="0").set_index('id')
+    data = conn.query('SELECT * FROM EMPLOYEE ORDER By id_employee;', ttl="0").set_index('id')
     st.dataframe(data)
 
 if page == "Edit Data":
