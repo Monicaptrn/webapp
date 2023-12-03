@@ -7,7 +7,7 @@ create table employee (
 	position text,
 	handphone text,
 	address text,
-	start_and_finish_time time,
+	start_and_finish_time text,
 	total_working_hours time,
 	salary text
 );
