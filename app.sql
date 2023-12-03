@@ -6,13 +6,12 @@ create table employee (
 	date_of_birth date,
 	position text,
 	handphone text,
-	address text,
 	start_and_finish_time text,
 	total_working_hours time,
 	salary text
 );
 
-insert into employee (id_employee, employee_name, gender, date_of_birth, position, handphone, address, start_and_finish_time, total_working_hours, salary) 
+insert into employee (id_employee, employee_name, gender, date_of_birth, position, handphone, start_and_finish_time, total_working_hours, salary) 
 values
 	('1015', 'Givangkara Ozora Ilhamsah', 'Male', '2023-10-01', 'Waiter', 6285780, '["09:00", "17:00"]', '08:00', 'Rp400.000'),
 	('1014', 'Naia Diti Sabrina Aurelia','Female', '2023-10-01', 'Waiter', 6285779, '["06:00", "17:00"]', '08:00', 'Rp550,000'),
