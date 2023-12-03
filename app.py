@@ -2,7 +2,7 @@ import streamlit as st
 from sqlalchemy import text
 
 list_position = ['', 'Waiter', 'Cashier', 'Cheff']
-list_gender = ['', 'male', 'female']
+list_symptom = ['', 'male', 'female']
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://monicapnatalia:AL0SxXokUnH6@ep-aged-wave-13244601.us-east-2.aws.neon.tech/web")
@@ -41,7 +41,7 @@ if page == "Edit Data":
         with st.expander(f'a.n. {employee_name_lama}'):
             with st.form(f'data-{id}'):
                 employee_name_baru = st.text_input("employee_name", employee_name_lama)
-                gender_baru = st.selectbox("gender", list_gender, list_gender.index(gender_lama))
+                gender_baru = st.selectbox("gender", list_symptom, list_symptom.index(gender_lama))
                 date_of_birth_baru = st.date_of_birth_input("tanggal", date_of_birth_lama)
                 jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama))
                 handphone_baru = st.text_input("handphone", handphone_lama)
