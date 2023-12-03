@@ -59,7 +59,7 @@ if page == "Edit Data":
                             query = text('UPDATE employee \
                                           SET employee_name=:1, gender=:2, date_of_birth=:3, \
                                           position=:4, handphone=:5, address=:6, start_and_finish_time=:7, total_working_hours=:8, salary=:9 \
-                                          WHERE id=:10;');')
+                                          WHERE id=:10;')
                             session.execute(query, {'1':employee_name_baru, '2':gender_baru, '3':date_of_birth_baru, 
                                                     '4':position_baru, '5':handphone_baru, '6':address_baru, '7':str(start_and_finish_time_baru), '8':total_working_hours_baru, '9':salary_baru, '10':id})
                             session.commit()
