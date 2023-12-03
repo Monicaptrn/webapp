@@ -1,7 +1,7 @@
 import streamlit as st
 from sqlalchemy import text
 
-list_position = ['', 'Waiter', 'Cashier', 'Cheff']
+list_jabatan = ['', 'Waiter', 'Cashier', 'Cheff']
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://monicapnatalia:AL0SxXokUnH6@ep-aged-wave-13244601.us-east-2.aws.neon.tech/web")
