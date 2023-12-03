@@ -10,7 +10,7 @@ with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS EMPLOYEE (id_employee text, employee_name text, gender text, date_of_birth date, position text, handphone text, address text, start_and_finish_time text, total_working_hours time, salary text);')
     session.execute(query)
 
-st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT SYS')
+st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
@@ -25,7 +25,7 @@ if page == "Edit Data":
             session.execute(query, {'1':'', '2':'', '3':'', '4':None, '5':'', '6':'', '7':'', '8':[], '9':None, '10':''})
             session.commit()
 
-    data = conn.query('SELECT * FROM employee ORDER By id;', ttl="0")
+    data = conn.query('SELECT * FROM employee ORDER By id_employee;', ttl="0")
     for _, result in data.iterrows():        
         id_employee = result["id_employee"]
         employee_name_lama = result["employee_name"]
