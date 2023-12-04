@@ -23,7 +23,7 @@ if page == "Edit Data":
         with conn.session as session:
             query = text('INSERT INTO employee (employee_name, gender, date_of_birth, jabatan, handphone, start_and_finish_time, total_working_hours, salary) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7, :8);')
-            session.execute(query, {'1':'', '2':'', '3':None, '4':'', '5':'', '6':[], '7':None, '8':''})
+            session.execute(query, {'1':'', '2':'', '3':None, '4':'', '5':'', '6':'[]', '7':None, '8':''})
             session.commit()
 
     data = conn.query('SELECT * FROM employee ORDER By id;', ttl="0")
@@ -46,7 +46,6 @@ if page == "Edit Data":
                 jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama))
                 handphone_baru = st.text_input("handphone", handphone_lama)
                 start_and_finish_time_baru = st.multiselect("start_and_finish_time", ['06:00', '07:00', '08:00', '09:00', '17:00'], eval(start_and_finish_time_lama))
-                total_working_hours_baru = st.time_input("total_working_hours", total_working_hours_lama)
                 salary_baru = st.text_input("salary", salary_lama)
                 
                 col1, col2 = st.columns([1, 6])
