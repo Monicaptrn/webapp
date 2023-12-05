@@ -3,7 +3,7 @@ from sqlalchemy import text
 
 list_jabatan = ['', 'Waiter', 'Cashier', 'Cheff']
 list_gender = ['', 'Male', 'Female']
-list_waktu = ["06:00", "07:00", "08:00", "09:00", "17:00"]
+list_waktu = ['', "06:00", "07:00", "08:00", "09:00", "17:00"]
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://monicapnatalia:AL0SxXokUnH6@ep-aged-wave-13244601.us-east-2.aws.neon.tech/web")
