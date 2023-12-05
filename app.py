@@ -57,8 +57,7 @@ if page == "Edit Data":
                                           SET employee_name=:1, gender=:2, date_of_birth=:3, \
                                           jabatan=:4, handphone=:5, start_and_finish_time=:6, total_working_hours=:7, salary=:8 \
                                           WHERE id=:9;')
-                            session.execute(query, {'1':employee_name_baru, '2':gender_baru, '3':date_of_birth_baru, 
-                                                    '4':jabatan_baru, '5':handphone_baru, '6':str(start_and_finish_time_baru), '7':total_working_hours_baru, '8':salary_baru, '9':id})
+                            session.execute(query, {'1':employee_name_baru, '2':gender_baru, '3':date_of_birth_baru, '4':jabatan_baru, '5':handphone_baru, '6':str(start_and_finish_time_baru), '7':total_working_hours_baru, '8':salary_baru, '9':id})
                             session.commit()
                             st.experimental_rerun()
                 
