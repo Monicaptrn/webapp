@@ -7,8 +7,8 @@ list_gender = ['', 'Male', 'Female']
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://monicapnatalia:AL0SxXokUnH6@ep-aged-wave-13244601.us-east-2.aws.neon.tech/web")
 with conn.session as session:
-    query = text('CREATE TABLE IF NOT EXISTS EMPLOYEE (id serial, employee_name varchar, gender char(30), date_of_birth date, \
-                                                         jabatan varchar, handphone varchar, start_and_finish_time varchar, total_working_hours time, salary varchar);')
+    query = text('CREATE TABLE IF NOT EXISTS EMPLOYEE (id serial, employee_name text, gender char(30), date_of_birth date, \
+                                                         jabatan text, handphone text, start_and_finish_time text, total_working_hours time, salary text);')
     session.execute(query)
 
 st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT coba')
