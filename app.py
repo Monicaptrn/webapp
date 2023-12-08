@@ -12,7 +12,7 @@ with conn.session as session:
                                                          jabatan text, handphone text, start_and_finish_time text, total_working_hours time, salary text);')
     session.execute(query)
 
-st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT coba')
+st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
