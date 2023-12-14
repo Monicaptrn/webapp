@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from sqlalchemy import text
-import matplotlib.pyplot as plt
 
 list_jabatan = ['', 'Waiter', 'Cashier', 'Cheff']
 list_gender = ['', 'Male', 'Female']
@@ -74,16 +73,13 @@ if page == "Edit Data":
                 
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
-    data_gender = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
-    gender_chart = data_gender.set_index('gender').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
-    st.pyplot(gender_chart)
+    data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
+    st.bar_chart(data.set_index('gender'))
     '\n'
     st.subheader("Visualisasi Jabatan")
-    data_jabatan = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
-    jabatan_chart = data_jabatan.set_index('jabatan').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
-    st.pyplot(jabatan_chart)
+    data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
+    st.bar_chart(data.set_index('jabatan'))
     '\n'
     st.subheader("Visualisasi Shift")
-    data_shift = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
-    shift_chart = data_shift.set_index('shift').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
-    st.pyplot(shift_chart)
+    data = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
+    st.bar_chart(data.set_index('shift'))
