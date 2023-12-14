@@ -47,7 +47,7 @@ if page == "Edit Data":
                 date_of_birth_baru = st.date_input("date_of_birth", date_of_birth_lama)
                 jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama) if jabatan_lama in list_jabatan else 0)
                 handphone_baru = st.text_input("handphone", handphone_lama)
-                shift_baru = st.multiselect("shift", list_shift, eval(shift_lama) if shift_lama in list_shift else 0)
+                shift_baru = st.multiselect("shift", list_shift, eval(shift_lama))
                 total_working_hours_baru = st.time_input("total_working_hours", total_working_hours_lama)
                 salary_baru = st.text_input("salary", salary_lama)
                 
