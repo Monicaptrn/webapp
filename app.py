@@ -74,7 +74,7 @@ if page == "Edit Data":
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
     data = conn.query('SELECT COUNT(*) as count FROM employee GROUP BY gender;')
-    st.bar_chart(data.set_index('gender'))
+    st.bar_chart(data)
     '\n'
     st.subheader("Visualisasi Jabatan")
     data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
