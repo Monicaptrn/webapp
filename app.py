@@ -71,9 +71,7 @@ if page == "Edit Data":
                         session.commit()
                         st.experimental_rerun()
                 
-                with col3:
-                    if st.form_submit_button('VISUALISASI DATA'):
-                        st.subheader("Visualisasi Gender")
-                        data = conn.query('SELECT gender, COUNT(*) as count FROM participant GROUP BY gender;')
-                        st.bar_chart(data.set_index('gender'))
-                        '\n'
+if page == "Visualisasi Data":
+    st.subheader("Visualisasi Programs")
+    data = conn.query('SELECT programs, COUNT(*) as count FROM participant GROUP BY programs;')
+    st.bar_chart(data.set_index('programs'))
