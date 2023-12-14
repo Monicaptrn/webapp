@@ -45,9 +45,9 @@ if page == "Edit Data":
                 employee_name_baru = st.text_input("employee_name", employee_name_lama)
                 gender_baru = st.selectbox("gender", list_gender, list_gender.index(gender_lama) if gender_lama in list_gender else 0)
                 date_of_birth_baru = st.date_input("date_of_birth", date_of_birth_lama)
-                jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama))
+                jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama) if jabatan_lama in list_jabatan else 0)
                 handphone_baru = st.text_input("handphone", handphone_lama)
-                shift_baru = st.multiselect("shift", list_shift, eval(shift_lama))
+                shift_baru = st.multiselect("shift", list_shift, eval(shift_lama) if shift_lama in list_shift else 0)
                 total_working_hours_baru = st.time_input("total_working_hours", total_working_hours_lama)
                 salary_baru = st.text_input("salary", salary_lama)
                 
@@ -74,4 +74,12 @@ if page == "Edit Data":
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
     data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
-    st.bar_chart(data.set_index('gender'))
+    st.pie_chart(data.set_index('gender'))
+    '\n'
+    st.subheader("Visualisasi Jabatan")
+    data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
+    st.bar_chart(data.set_index('jabatan'))
+    '\n'
+    st.subheader("Visualisasi Shift")
+    data = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
+    st.bar_chart(data.set_index('shift'))
