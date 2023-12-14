@@ -74,12 +74,12 @@ if page == "Edit Data":
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
     data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;', ttl="0")
-    st.bar_chart(data)
+    st.bar_chart(data.set_index('gender'))
     '\n'
     st.subheader("Visualisasi Jabatan")
-    data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
+    data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;', ttl="0")
     st.bar_chart(data.set_index('jabatan'))
     '\n'
     st.subheader("Visualisasi Shift")
-    data = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
+    data = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;', ttl="0")
     st.bar_chart(data.set_index('shift'))
