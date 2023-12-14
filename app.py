@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from sqlalchemy import text
 
 list_jabatan = ['', 'Waiter', 'Cashier', 'Cheff']
@@ -13,7 +14,7 @@ with conn.session as session:
     session.execute(query)
 
 st.header('RESTAURANT EMPLOYEE DATA MANAGEMENT')
-page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
+page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data","Visualisasi Data"])
 
 if page == "View Data":
     data = conn.query('SELECT * FROM EMPLOYEE ORDER By id;', ttl="0").set_index('id')
