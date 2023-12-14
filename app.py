@@ -74,18 +74,15 @@ if page == "Edit Data":
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
     data_gender = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
-    fig_gender, ax_gender = plt.subplots()
-    ax_gender.pie(data_gender['count'], labels=data_gender['gender'], autopct='%1.1f%%', startangle=90)
-    st.pyplot(fig_gender)
-    
+    gender_chart = data_gender.set_index('gender').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
+    st.pyplot(gender_chart)
+    '\n'
     st.subheader("Visualisasi Jabatan")
     data_jabatan = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
-    fig_jabatan, ax_jabatan = plt.subplots()
-    ax_jabatan.pie(data_jabatan['count'], labels=data_jabatan['jabatan'], autopct='%1.1f%%', startangle=90)
-    st.pyplot(fig_jabatan)
-    
+    jabatan_chart = data_jabatan.set_index('jabatan').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
+    st.pyplot(jabatan_chart)
+    '\n'
     st.subheader("Visualisasi Shift")
     data_shift = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
-    fig_shift, ax_shift = plt.subplots()
-    ax_shift.pie(data_shift['count'], labels=data_shift['shift'], autopct='%1.1f%%', startangle=90)
-    st.pyplot(fig_shift)
+    shift_chart = data_shift.set_index('shift').plot.pie(y='count', autopct='%1.1f%%', startangle=90)
+    st.pyplot(shift_chart)
