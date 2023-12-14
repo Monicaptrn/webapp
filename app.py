@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sqlalchemy import text
+import matplotlib.pyplot as plt
 
 list_jabatan = ['', 'Waiter', 'Cashier', 'Cheff']
 list_gender = ['', 'Male', 'Female']
