@@ -72,15 +72,15 @@ if page == "Edit Data":
                         st.experimental_rerun()
 
 if page == "Visualisasi Data":
-  st.subheader("Visualisasi Programs")
-    data = conn.query('SELECT programs, COUNT(*) as count FROM participant GROUP BY programs;')
-    st.bar_chart(data.set_index('programs'))
+  st.subheader("Visualisasi Gender")
+    data = conn.query('SELECT gender, COUNT(*) as count FROM participant GROUP BY gender;')
+    st.bar_chart(data.set_index('gender'))
     '\n'
-  st.subheader("Visualisasi Duration")
-    data = conn.query('SELECT duration, COUNT(*) as count FROM participant GROUP BY duration;')
-    st.bar_chart(data.set_index('duration'))
+  st.subheader("Visualisasi Jabatan")
+    data = conn.query('SELECT jabatan, COUNT(*) as count FROM participant GROUP BY jabatan;')
+    st.bar_chart(data.set_index('jabatan'))
     '\n'
-  st.subheader("Visualisasi Price")
-    data = conn.query('SELECT price, COUNT(*) as count FROM participant GROUP BY price;')
-    st.bar_chart(data.set_index('price'))
+  st.subheader("Visualisasi Salary")
+    data = conn.query('SELECT salary, COUNT(*) as count FROM participant GROUP BY salary;')
+    st.bar_chart(data.set_index('salary'))
 
