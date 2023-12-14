@@ -73,13 +73,13 @@ if page == "Edit Data":
                 
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
-    data_gender = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
-    st.pie_chart(data_gender.set_index('gender')['count'])
-
+    data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;')
+    st.bar_chart(data.set_index('gender'))
+    '\n'
     st.subheader("Visualisasi Jabatan")
-    data_jabatan = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
-    st.pie_chart(data_jabatan.set_index('jabatan')['count'])
-
+    data = conn.query('SELECT jabatan, COUNT(*) as count FROM employee GROUP BY jabatan;')
+    st.bar_chart(data.set_index('jabatan'))
+    '\n'
     st.subheader("Visualisasi Shift")
-    data_shift = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
-    st.pie_chart(data_shift.set_index('shift')['count'])
+    data = conn.query('SELECT shift, COUNT(*) as count FROM employee GROUP BY shift;')
+    st.bar_chart(data.set_index('shift'))
