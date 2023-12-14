@@ -43,7 +43,7 @@ if page == "Edit Data":
         with st.expander(f'a.n. {employee_name_lama}'):
             with st.form(f'data-{id}'):
                 employee_name_baru = st.text_input("employee_name", employee_name_lama)
-                gender_baru = st.selectbox("gender", list_gender, list_gender.index(gender_lama))
+                gender_baru = st.selectbox("gender", list_gender, list_gender.index(gender_lama)if gender_lama in list_gender else 0))
                 date_of_birth_baru = st.date_input("date_of_birth", date_of_birth_lama)
                 jabatan_baru = st.selectbox("jabatan", list_jabatan, list_jabatan.index(jabatan_lama))
                 handphone_baru = st.text_input("handphone", handphone_lama)
@@ -72,6 +72,6 @@ if page == "Edit Data":
                         st.experimental_rerun()
                 
 if page == "Visualisasi Data":
-    st.subheader("Visualisasi Programs")
-    data = conn.query('SELECT programs, COUNT(*) as count FROM participant GROUP BY programs;')
-    st.bar_chart(data.set_index('programs'))
+    st.subheader("Visualisasi Gender")
+    data = conn.query('SELECT gender, COUNT(*) as count FROM participant GROUP BY gender;')
+    st.bar_chart(data.set_index('gender'))
