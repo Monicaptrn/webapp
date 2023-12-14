@@ -70,3 +70,5 @@ if page == "Edit Data":
                         session.execute(query, {'1':id})
                         session.commit()
                         st.experimental_rerun()
+
+if page == "Visualisasi Data":
