@@ -70,17 +70,10 @@ if page == "Edit Data":
                         session.execute(query, {'1':id})
                         session.commit()
                         st.experimental_rerun()
-
-if page == "Visualisasi Data":
-  st.subheader("Visualisasi Gender")
-  data = conn.query('SELECT gender, COUNT(*) as count FROM participant GROUP BY gender;')
-  st.bar_chart(data.set_index('gender'))
-  '\n'
-  st.subheader("Visualisasi Jabatan")
-  data = conn.query('SELECT jabatan, COUNT(*) as count FROM participant GROUP BY jabatan;')
-  st.bar_chart(data.set_index('jabatan'))
-  '\n'
-  st.subheader("Visualisasi Salary")
-  data = conn.query('SELECT salary, COUNT(*) as count FROM participant GROUP BY salary;')
-  st.bar_chart(data.set_index('salary'))
-
+                
+                with col3:
+                    if st.form_submit_button('VISUALISASI DATA'):
+                        st.subheader("Visualisasi Gender")
+                        data = conn.query('SELECT gender, COUNT(*) as count FROM participant GROUP BY gender;')
+                        st.bar_chart(data.set_index('gender'))
+                        '\n'
