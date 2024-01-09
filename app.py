@@ -73,7 +73,7 @@ if page == "Edit Data":
                 
 if page == "Visualisasi Data":
     st.subheader("Visualisasi Gender")
-    data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;, ttl="0")
+    data = conn.query('SELECT gender, COUNT(*) as count FROM employee GROUP BY gender;', ttl="0")
     st.pie_chart(data.set_index('gender'))
     '\n'
     st.subheader("Visualisasi Jabatan")
